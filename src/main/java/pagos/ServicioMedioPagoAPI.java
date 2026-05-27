@@ -11,11 +11,11 @@ import jakarta.ws.rs.core.MediaType;
 @Path("/procesar-pago")
 public class ServicioMedioPagoAPI {
 	
-	//curl -v http://localhost:8080/ServicioMedioPagoMock/api/procesar-pago
+        //curl -X POST -v http://localhost:8180/ServicioMedioPagoMock/api/procesar-pago -H "Content-Type: application/json" -d '{"numeroTarjeta":"1111222233334444"}'
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces({MediaType.APPLICATION_JSON})
-	public boolean procesarPago(String numeroTarjeta) {
-            return "1111222233334444".equals(numeroTarjeta);
+	public boolean procesarPago(PagoRequest request) {
+            return "1111222233334444".equals(request.numeroTarjeta);
 	}	
 }
